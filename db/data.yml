@@ -1,0 +1,30 @@
+
+---
+ar_internal_metadata:
+  columns:
+  - key
+  - value
+  - created_at
+  - updated_at
+  records: 
+  - - environment
+    - development
+    - 2023-02-08 22:31:21.279045000 Z
+    - 2023-02-08 22:31:21.279045000 Z
+
+---
+users:
+  columns:
+  - id
+  - full_name
+  - email
+  - phone_number
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Brandon Longuet
+    - Brandon.longuet@tamu.edu
+    - '8325899839'
+    - 2023-02-09 14:23:22.890348000 Z
+    - 2023-02-09 14:23:22.890348000 Z
