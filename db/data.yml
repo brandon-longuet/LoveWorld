@@ -9,26 +9,9 @@ ar_internal_metadata:
   records: 
   - - environment
     - development
-    - 2023-02-08 22:44:00.393497000 Z
-    - 2023-02-08 22:44:00.393497000 Z
+    - 2023-02-09 15:22:13.146440000 Z
+    - 2023-02-09 15:22:13.146440000 Z
   - - schema_sha1
     - dfab5439f50d59207aed5af47c74a84da4a9ada8
-    - 2023-02-09 14:27:08.082631000 Z
-    - 2023-02-09 14:27:08.082631000 Z
-
----
-users:
-  columns:
-  - id
-  - full_name
-  - email
-  - phone_number
-  - created_at
-  - updated_at
-  records: 
-  - - 1
-    - Raul Escobar
-    - raulescobar_g@tamu.edu
-    - '9566070144'
-    - 2023-02-09 14:44:08.423846000 Z
-    - 2023-02-09 14:44:08.423846000 Z
+    - 2023-02-09 15:22:39.768711000 Z
+    - 2023-02-09 15:22:39.768711000 Z

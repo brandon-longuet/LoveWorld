@@ -4,24 +4,31 @@ class EventMembersController < ApplicationController
   # GET /event_members or /event_members.json
   def index
     @event_members = EventMember.all
+    puts 'print index'
   end
 
   # GET /event_members/1 or /event_members/1.json
   def show
+    puts 'print show'
   end
 
   # GET /event_members/new
   def new
     @event_member = EventMember.new
+    puts 'print new'
   end
 
   # GET /event_members/1/edit
   def edit
+    puts 'print edit'
   end
 
   # POST /event_members or /event_members.json
   def create
     @event_member = EventMember.new(event_member_params)
+    puts 'print create'
+    puts params[:event_id]
+    puts params[:user_id]
 
     respond_to do |format|
       if @event_member.save
@@ -36,6 +43,7 @@ class EventMembersController < ApplicationController
 
   # PATCH/PUT /event_members/1 or /event_members/1.json
   def update
+    puts 'print update'
     respond_to do |format|
       if @event_member.update(event_member_params)
         format.html { redirect_to event_member_url(@event_member), notice: "Event member was successfully updated." }
@@ -61,10 +69,11 @@ class EventMembersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event_member
       @event_member = EventMember.find(params[:id])
+      puts 'print set'
     end
 
     # Only allow a list of trusted parameters through.
     def event_member_params
-      params.require(:event_member).permit(:event_id, :user_id)
+      params.permit(:event_id, :user_id)
     end
 end

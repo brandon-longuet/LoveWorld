@@ -7,6 +7,7 @@
     <%= render event %>
     <p>
       <%= link_to "Show this event", event %>
+      <%= button_to "Join Event", event_members_path(:event_id => event.id, :user_id => 1)%>
     </p>
   <% end %>
 </div>
