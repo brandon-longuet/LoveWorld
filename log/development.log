@@ -1223,3 +1223,413 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 117ms (Views: 105.1ms | ActiveRecord: 6.0ms | Allocations: 44535)
 
 
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mReply Exists? (3.8ms)[0m  [1m[34mSELECT 1 AS one FROM "replies" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPost Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroupMember Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "group_members" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEventMember Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "event_members" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "events" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 0]]
+Started GET "/" for ::1 at 2023-02-10 11:21:17 -0600
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/raulescobar/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/raulescobar/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.8ms | Allocations: 480)
+Completed 200 OK in 13ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 3424)
+
+
+Started GET "/users" for ::1 at 2023-02-10 11:21:21 -0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.9ms | Allocations: 245)
+  Rendered users/index.html.erb within layouts/application (Duration: 48.8ms | Allocations: 6594)
+  Rendered layout layouts/application.html.erb (Duration: 157.2ms | Allocations: 40858)
+Completed 200 OK in 167ms (Views: 154.7ms | ActiveRecord: 6.2ms | Allocations: 43945)
+
+
+Started GET "/users/new" for ::1 at 2023-02-10 11:21:23 -0600
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 16.2ms | Allocations: 3507)
+  Rendered users/new.html.erb within layouts/application (Duration: 17.7ms | Allocations: 3804)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 6119)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.0ms | Allocations: 6556)
+
+
+Started POST "/users" for ::1 at 2023-02-10 11:21:38 -0600
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"full_name"=>"Brandon Longuet", "email"=>"brandon@tamu.edu", "phone_number"=>"0001112222"}, "commit"=>"Create User"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:25:in `block in create'
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("full_name", "email", "phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["full_name", "Brandon Longuet"], ["email", "brandon@tamu.edu"], ["phone_number", "0001112222"], ["created_at", "2023-02-10 17:21:38.436692"], ["updated_at", "2023-02-10 17:21:38.436692"]]
+  ↳ app/controllers/users_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 9ms (ActiveRecord: 2.4ms | Allocations: 4226)
+
+
+Started GET "/users/2" for ::1 at 2023-02-10 11:21:38 -0600
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:62:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered users/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1234)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3530)
+Completed 200 OK in 14ms (Views: 5.8ms | ActiveRecord: 0.6ms | Allocations: 6316)
+
+
+Started GET "/users" for ::1 at 2023-02-10 11:21:41 -0600
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1337)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3531)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.5ms | Allocations: 3814)
+
+
+Started GET "/groups" for ::1 at 2023-02-10 11:21:44 -0600
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1492)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3903)
+Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.6ms | Allocations: 5494)
+
+
+Started GET "/groups/new" for ::1 at 2023-02-10 11:21:45 -0600
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 3.5ms | Allocations: 1774)
+  Rendered groups/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2044)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 4236)
+Completed 200 OK in 17ms (Views: 8.6ms | ActiveRecord: 2.9ms | Allocations: 6921)
+
+
+Started POST "/groups" for ::1 at 2023-02-10 11:21:51 -0600
+Processing by GroupsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group"=>{"name"=>"LoveWorld", "description"=>"our team"}, "commit"=>"Create Group"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+  [1m[36mGroup Create (0.9ms)[0m  [1m[32mINSERT INTO "groups" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "LoveWorld"], ["description", "our team"], ["created_at", "2023-02-10 17:21:51.856603"], ["updated_at", "2023-02-10 17:21:51.856603"]]
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/groups/1
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms | Allocations: 2888)
+
+
+Started GET "/groups/1" for ::1 at 2023-02-10 11:21:51 -0600
+Processing by GroupsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:62:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.6ms | Allocations: 160)
+  Rendered groups/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1294)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3478)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 4962)
+
+
+Started GET "/groups" for ::1 at 2023-02-10 11:21:56 -0600
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered groups/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1143)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3335)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 3604)
+
+
+Started GET "/groups/new" for ::1 at 2023-02-10 11:21:58 -0600
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 2.1ms | Allocations: 1253)
+  Rendered groups/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1340)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3532)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 3804)
+
+
+Started POST "/groups" for ::1 at 2023-02-10 11:22:10 -0600
+Processing by GroupsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group"=>{"name"=>"Another group", "description"=>"this is another group"}, "commit"=>"Create Group"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+  [1m[36mGroup Create (2.0ms)[0m  [1m[32mINSERT INTO "groups" ("name", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Another group"], ["description", "this is another group"], ["created_at", "2023-02-10 17:22:10.910829"], ["updated_at", "2023-02-10 17:22:10.910829"]]
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/groups_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/groups/2
+Completed 302 Found in 10ms (ActiveRecord: 3.5ms | Allocations: 2542)
+
+
+Started GET "/groups/2" for ::1 at 2023-02-10 11:22:10 -0600
+Processing by GroupsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:62:in `set_group'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered groups/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 841)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3025)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.4ms | Allocations: 3786)
+
+
+Started GET "/events" for ::1 at 2023-02-10 11:22:17 -0600
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1521)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3932)
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 0.7ms | Allocations: 5523)
+
+
+Started GET "/events/new" for ::1 at 2023-02-10 11:22:18 -0600
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 7.4ms | Allocations: 2340)
+  Rendered events/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 2628)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 4941)
+Completed 200 OK in 21ms (Views: 13.1ms | ActiveRecord: 3.2ms | Allocations: 7816)
+
+
+Started POST "/events" for ::1 at 2023-02-10 11:22:28 -0600
+Processing by EventsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"name"=>"meeting", "start"=>"2023-02-10T11:22", "end"=>"2023-02-10T00:22"}, "commit"=>"Create Event"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:25:in `block in create'
+  [1m[36mEvent Create (0.8ms)[0m  [1m[32mINSERT INTO "events" ("name", "start", "end", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "meeting"], ["start", "2023-02-10 11:22:00"], ["end", "2023-02-10 00:22:00"], ["created_at", "2023-02-10 17:22:28.749391"], ["updated_at", "2023-02-10 17:22:28.749391"]]
+  ↳ app/controllers/events_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/events/1
+Completed 302 Found in 13ms (ActiveRecord: 2.9ms | Allocations: 3132)
+
+
+Started GET "/events/1" for ::1 at 2023-02-10 11:22:28 -0600
+Processing by EventsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:62:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.8ms | Allocations: 207)
+  Rendered events/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1340)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3525)
+Completed 200 OK in 11ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 5084)
+
+
+Started GET "/events" for ::1 at 2023-02-10 11:22:33 -0600
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/_event.html.erb (Duration: 0.2ms | Allocations: 37)
+  Rendered events/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1189)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3381)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.3ms | Allocations: 3652)
+
+
+Started GET "/events/new" for ::1 at 2023-02-10 11:22:34 -0600
+Processing by EventsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/new.html.erb within layouts/application
+  Rendered events/_form.html.erb (Duration: 3.6ms | Allocations: 1477)
+  Rendered events/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1565)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3757)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 4031)
+
+
+Started POST "/events" for ::1 at 2023-02-10 11:22:49 -0600
+Processing by EventsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event"=>{"name"=>"audit", "start"=>"2023-02-17T11:22", "end"=>"2023-02-17T00:22"}, "commit"=>"Create Event"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:25:in `block in create'
+  [1m[36mEvent Create (0.6ms)[0m  [1m[32mINSERT INTO "events" ("name", "start", "end", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "audit"], ["start", "2023-02-17 11:22:00"], ["end", "2023-02-17 00:22:00"], ["created_at", "2023-02-10 17:22:49.232361"], ["updated_at", "2023-02-10 17:22:49.232361"]]
+  ↳ app/controllers/events_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/events/2
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms | Allocations: 2700)
+
+
+Started GET "/events/2" for ::1 at 2023-02-10 11:22:49 -0600
+Processing by EventsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:62:in `set_event'
+  Rendering layout layouts/application.html.erb
+  Rendering events/show.html.erb within layouts/application
+  Rendered events/_event.html.erb (Duration: 0.2ms | Allocations: 37)
+  Rendered events/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 850)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3034)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.5ms | Allocations: 3797)
+
+
+Started GET "/events" for ::1 at 2023-02-10 11:22:52 -0600
+Processing by EventsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/views/events/index.html.erb:6
+  Rendered events/_event.html.erb (Duration: 0.2ms | Allocations: 37)
+  Rendered events/_event.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered events/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1329)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3521)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.4ms | Allocations: 3791)
+
+
+Started GET "/event_members" for ::1 at 2023-02-10 11:22:55 -0600
+Processing by EventMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering event_members/index.html.erb within layouts/application
+  [1m[36mEventMember Load (0.9ms)[0m  [1m[34mSELECT "event_members".* FROM "event_members"[0m
+  ↳ app/views/event_members/index.html.erb:6
+  Rendered event_members/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1517)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3928)
+Completed 200 OK in 16ms (Views: 8.8ms | ActiveRecord: 0.9ms | Allocations: 5914)
+
+
+Started GET "/event_members/new" for ::1 at 2023-02-10 11:22:57 -0600
+Processing by EventMembersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering event_members/new.html.erb within layouts/application
+  Rendered event_members/_form.html.erb (Duration: 2.7ms | Allocations: 1788)
+  Rendered event_members/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2059)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 4251)
+Completed 200 OK in 14ms (Views: 7.9ms | ActiveRecord: 2.0ms | Allocations: 6878)
+
+
+Started POST "/event_members" for ::1 at 2023-02-10 11:23:08 -0600
+Processing by EventMembersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "event_member"=>{"event_id"=>"1", "user_id"=>"1"}, "commit"=>"Create Event member"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mEventMember Create (5.4ms)[0m  [1m[32mINSERT INTO "event_members" ("event_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["event_id", 1], ["user_id", 1], ["created_at", "2023-02-10 17:23:08.714263"], ["updated_at", "2023-02-10 17:23:08.714263"]]
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/event_members_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/event_members/1
+Completed 302 Found in 27ms (ActiveRecord: 7.7ms | Allocations: 8293)
+
+
+Started GET "/event_members/1" for ::1 at 2023-02-10 11:23:08 -0600
+Processing by EventMembersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mEventMember Load (0.5ms)[0m  [1m[34mSELECT "event_members".* FROM "event_members" WHERE "event_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/event_members_controller.rb:62:in `set_event_member'
+  Rendering layout layouts/application.html.erb
+  Rendering event_members/show.html.erb within layouts/application
+  Rendered event_members/_event_member.html.erb (Duration: 0.6ms | Allocations: 161)
+  Rendered event_members/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1411)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3699)
+Completed 200 OK in 10ms (Views: 6.4ms | ActiveRecord: 0.5ms | Allocations: 5200)
+
+
+Started GET "/group_members" for ::1 at 2023-02-10 11:23:15 -0600
+Processing by GroupMembersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/index.html.erb within layouts/application
+  [1m[36mGroupMember Load (0.9ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members"[0m
+  ↳ app/views/group_members/index.html.erb:6
+  Rendered group_members/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1529)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3940)
+Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 0.9ms | Allocations: 5699)
+
+
+Started GET "/group_members/new" for ::1 at 2023-02-10 11:23:16 -0600
+Processing by GroupMembersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/new.html.erb within layouts/application
+  Rendered group_members/_form.html.erb (Duration: 4.1ms | Allocations: 1790)
+  Rendered group_members/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2061)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4253)
+Completed 200 OK in 16ms (Views: 9.4ms | ActiveRecord: 2.2ms | Allocations: 6618)
+
+
+Started POST "/group_members" for ::1 at 2023-02-10 11:23:19 -0600
+Processing by GroupMembersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group_member"=>{"group_id"=>"2", "user_id"=>"2"}, "commit"=>"Create Group member"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mGroup Load (0.9ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mGroupMember Create (1.4ms)[0m  [1m[32mINSERT INTO "group_members" ("group_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 2], ["user_id", 2], ["created_at", "2023-02-10 17:23:19.623679"], ["updated_at", "2023-02-10 17:23:19.623679"]]
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/group_members_controller.rb:25:in `block in create'
+Redirected to http://localhost:3000/group_members/1
+Completed 302 Found in 24ms (ActiveRecord: 3.8ms | Allocations: 7183)
+
+
+Started GET "/group_members/1" for ::1 at 2023-02-10 11:23:19 -0600
+Processing by GroupMembersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mGroupMember Load (0.5ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" WHERE "group_members"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/group_members_controller.rb:62:in `set_group_member'
+  Rendering layout layouts/application.html.erb
+  Rendering group_members/show.html.erb within layouts/application
+  Rendered group_members/_group_member.html.erb (Duration: 0.6ms | Allocations: 159)
+  Rendered group_members/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1328)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3528)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.5ms | Allocations: 4963)
+
+
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mReply Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "replies" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mPost Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroupMember Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "group_members" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEventMember Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "event_members" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "events" LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1 OFFSET $2[0m  [["LIMIT", 2], ["OFFSET", 0]]
+  [1m[36mGroupMember Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "group_members"[0m
+  [1m[36mGroupMember Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "group_members"[0m
+  [1m[36mGroupMember Load (0.3ms)[0m  [1m[34mSELECT "group_members".* FROM "group_members" LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 0]]
+  [1m[36mGroup Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "groups"[0m
+  [1m[36mGroup Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "groups"[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" LIMIT $1 OFFSET $2[0m  [["LIMIT", 2], ["OFFSET", 0]]
+  [1m[36mEventMember Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "event_members"[0m
+  [1m[36mEventMember Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "event_members"[0m
+  [1m[36mEventMember Load (0.3ms)[0m  [1m[34mSELECT "event_members".* FROM "event_members" LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 0]]
+  [1m[36mEvent Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[36mEvent Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events"[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 2], ["OFFSET", 0]]
+DEPRECATION WARNING: TimeWithZone#to_s(:db) is deprecated. Please use TimeWithZone#to_fs(:db) instead. (called from block in execute at /Users/raulescobar/.rvm/rubies/ruby-3.1.2/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+DEPRECATION WARNING: TimeWithZone#to_s(:db) is deprecated. Please use TimeWithZone#to_fs(:db) instead. (called from block in execute at /Users/raulescobar/.rvm/rubies/ruby-3.1.2/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+DEPRECATION WARNING: TimeWithZone#to_s(:db) is deprecated. Please use TimeWithZone#to_fs(:db) instead. (called from block in execute at /Users/raulescobar/.rvm/rubies/ruby-3.1.2/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
+DEPRECATION WARNING: TimeWithZone#to_s(:db) is deprecated. Please use TimeWithZone#to_fs(:db) instead. (called from block in execute at /Users/raulescobar/.rvm/rubies/ruby-3.1.2/lib/ruby/gems/3.1.0/gems/rake-13.0.6/lib/rake/task.rb:281)
